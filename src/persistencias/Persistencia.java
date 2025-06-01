@@ -10,13 +10,52 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.*;
 import Tiquetes.Tiquete;
 import parqueDeAtracciones.Atraccion;
 import parqueDeAtracciones.Espectaculo;
 import parqueDeAtracciones.ExcLevel;
+import parqueDeAtracciones.Parque;
 
 public class Persistencia {
+	
+	private static final String PARQUE_ARCHIVO = "./data/parque.ser";
+	public static void guardarParque (Parque parque) { //Este metodo guarda parque como objeto por medio de serializacion.
+		try {
+			File folder = new File("./data/");
+			if(!folder.exists()) {
+				folder.mkdirs();
+				
+			}
+		ObjectOutputStream objetoAEscribir = new ObjectOutputStream(new FileOutputStream(PARQUE_ARCHIVO));
+		objetoAEscribir.writeObject(parque);
+		objetoAEscribir.close();
+		
+		System.out.println("La ultima version del parque ha sido guardada correctamente");
+		}
+		catch (IOException e) {
+			System.err.println("Ocurrio un error al intentar guardar el parque: " + e.getMessage());
+		}
+			
+		
+	}
+	
+	public static Parque cargarParque() {
+		try {
+			ObjectInputStream objetoALeer = new ObjectInputStream(new FileInputStream(PARQUE_ARCHIVO));
+			Parque parque = (Parque) objetoALeer.readObject();
+			objetoALeer.close();
+			System.out.println("El parque se ha cargado correctamente.");
+			return parque; }
+		catch (IOException e) {
+			System.err.println("El parque no se ha podido leer debido a un error, se creara una nueva version.");
+			return new Parque();
+		}
+		catch (ClassNotFoundException e) {
+			System.err.println("La clase Parque no se encontro, se creara otra.");
+			return new Parque();
+		}
+	}
 
     public static void escribirAtraccionesTxt(List<Atraccion> atracciones) 
     {

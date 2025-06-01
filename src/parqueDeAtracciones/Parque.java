@@ -2,12 +2,13 @@
 package parqueDeAtracciones;
 
 import java.util.ArrayList;
-
+import java.io.Serializable;
 import Empleados.Empelado;
 import Empleados.LugarServicio;
 import Empleados.Turno;
 
-public class Parque {
+public class Parque implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 		ArrayList<Empelado> listaEmpleado = new ArrayList<Empelado>();
 		
@@ -20,6 +21,15 @@ public class Parque {
 		ArrayList<Usuario> usersList= new ArrayList<Usuario>();
 		
 		ArrayList<Turno> listaTurnos= new ArrayList<Turno>();
+		
+		public Parque () {
+			this.listaEmpleado = new ArrayList<>();
+			this.listaAtracciones = new ArrayList<>();
+			this.listaEspectaculos = new ArrayList<>();
+			this.listaLugaresServicio = new ArrayList<>();
+			this.listaTurnos = new ArrayList<>();
+			this.usersList = new ArrayList<>();
+		}
 
 		public Parque(ArrayList<Empelado> listaEmpleado, ArrayList<Atraccion> listaAtracciones,
 				ArrayList<Espectaculo> listaEspectaculos, ArrayList<LugarServicio> listaLugaresServicio,
