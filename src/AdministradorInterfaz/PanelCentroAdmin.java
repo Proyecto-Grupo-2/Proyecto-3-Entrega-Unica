@@ -1,4 +1,4 @@
-package administrador.interfaz;
+package AdministradoInterfaz;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
