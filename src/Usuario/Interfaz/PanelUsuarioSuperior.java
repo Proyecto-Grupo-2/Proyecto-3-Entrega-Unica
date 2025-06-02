@@ -1,4 +1,4 @@
-package usuario.interfaz;
+package Usuario.Interfaz;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -13,7 +13,7 @@ public class PanelUsuarioSuperior extends JPanel{
 		img = new JLabel( );
         add(img);
         
-        ImageIcon icon= new ImageIcon("./data/imagenes/usuario.png" );
+        ImageIcon icon= new ImageIcon("./data/imagenes/usuario.jpg" );
         img.setIcon( icon );
 	}
 }
