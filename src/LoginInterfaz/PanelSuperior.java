@@ -1,18 +1,32 @@
 package LoginInterfaz;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class PanelSuperior extends JPanel{
-    private JLabel img;
+public class PanelInferior extends JPanel implements ActionListener{
+    private JButton butRegistrar;
 	
+	private VentanaLogin ventanaLo;
 	
-	public PanelSuperior() {
-		img = new JLabel( );
-        add(img);
-        
-        ImageIcon icon= new ImageIcon("./data/imagenes/parqueAtracc.png" );
-        img.setIcon( icon );
+	public PanelInferior(VentanaLogin ventanaLo) 
+	{
+		this.ventanaLo = ventanaLo;
+		
+		butRegistrar = new JButton("Registrarse");
+		add(butRegistrar);
+		butRegistrar.addActionListener( this );
+		butRegistrar.setActionCommand( "REGISTRAR" );
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) 
+	{
+		if(e.getActionCommand() == ("REGISTRAR")) 
+		{
+			ventanaLo.btnregistrarse();
+		}
 	}
 }
