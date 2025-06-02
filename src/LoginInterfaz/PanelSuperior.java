@@ -12,7 +12,7 @@ public class PanelSuperior extends JPanel{
         img = new JLabel( );
         add(img);
 
-        ImageIcon icon= new ImageIcon("./data/imagenes/parqueAtracc.png" );
+        ImageIcon icon= new ImageIcon("./data/imagenes/parqueAtracc.jpg" );
         img.setIcon( icon );
     }
 }
