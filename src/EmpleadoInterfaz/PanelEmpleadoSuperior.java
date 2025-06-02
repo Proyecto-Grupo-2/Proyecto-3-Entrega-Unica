@@ -12,7 +12,7 @@ public class PanelEmpleadoSuperior extends JPanel{
 		img = new JLabel( );
         add(img);
         
-        ImageIcon icon= new ImageIcon("./data/imagenes/empleado.png" );
+        ImageIcon icon= new ImageIcon("./data/imagenes/empleado.jpg" );
         img.setIcon( icon );
 	}
 }
